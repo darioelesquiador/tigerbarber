@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tiger Barber Madrid — barbería latina en Salamanca. Cortes masculinos, fades y arreglos de barba. Reserva tu cita por teléfono.">
+<meta name="theme-color" content="#0b0b0b">
+<title>TIGER BARBER — Madrid</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+:root{
+  --blue:#185adb; --red:#d72828; --white:#fff;
+  --bg:#080808; --panel:#111111; --panel2:#171717; --gold:#c9a66b;
+  --cream:#f4efe7; --muted:#a6a19a; --line:rgba(255,255,255,.10);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+header{position:fixed;top:0;left:0;right:0;z-index:30;padding:20px 0;transition:.4s}
+header.scrolled{background:rgba(8,8,8,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Oswald,sans-serif;font-size:25px;letter-spacing:.12em;font-weight:600}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:30px;color:#d7d0c7;font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+nav a{transition:.25s} nav a:hover{color:var(--gold)}
+.nav-cta,.primary{background:var(--gold);color:#111;border:0;padding:13px 19px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;cursor:pointer;transition:.3s}
+.nav-cta:hover,.primary:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(201,166,107,.2)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+
+.hero{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;padding:140px 0 80px}
+.hero:before{content:"";position:absolute;width:720px;height:720px;border-radius:50%;right:-240px;top:80px;background:radial-gradient(circle,rgba(201,166,107,.17),transparent 67%);filter:blur(5px);animation:pulse 5s ease-in-out infinite}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;position:relative;z-index:2}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:700;margin-bottom:20px}
+h1{font-family:Oswald,sans-serif;font-size:clamp(70px,10vw,145px);line-height:.84;letter-spacing:-.035em;text-transform:uppercase}
+h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--cream)}
+.hero-copy{font-size:18px;line-height:1.65;color:#b7b0a7;max-width:570px;margin:30px 0}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.secondary{padding:13px 19px;border:1px solid var(--line);border-radius:4px;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:700;background:transparent;color:var(--cream);transition:.3s}
+.secondary:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.hero-card{height:570px;border:1px solid var(--line);border-radius:5px;position:relative;overflow:hidden;background:
+linear-gradient(135deg,rgba(201,166,107,.18),transparent 35%),
+radial-gradient(circle at 70% 25%,rgba(255,255,255,.09),transparent 30%),
+linear-gradient(160deg,#24211d,#0d0d0d 58%,#17130e)}
+.hero-card:before{content:"";position:absolute;inset:30px;border:1px solid rgba(201,166,107,.28)}
+.hero-card:after{content:"T";position:absolute;font-family:Oswald;font-size:430px;line-height:1;color:rgba(201,166,107,.08);right:-35px;bottom:-95px}
+.card-top{position:absolute;top:55px;left:55px;font-family:Oswald;font-size:14px;letter-spacing:.2em;color:var(--gold)}
+.card-bottom{position:absolute;bottom:55px;left:55px;right:55px;display:flex;justify-content:space-between;align-items:end}
+.card-title{font-family:Oswald;font-size:54px;text-transform:uppercase;line-height:.9}
+.card-number{font-size:10px;letter-spacing:.2em;color:#8f8981}
+
+.marquee{border-block:1px solid var(--line);padding:17px 0;overflow:hidden;white-space:nowrap;color:#9d978f;font-family:Oswald;text-transform:uppercase;letter-spacing:.18em}
+.marquee-track{display:inline-block;animation:marquee 25s linear infinite}
+.marquee span{margin:0 30px}.dot{color:var(--gold)}
+
+section{padding:115px 0}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:50px}
+.section-head h2{font-family:Oswald;font-size:clamp(48px,7vw,88px);text-transform:uppercase;line-height:.9}
+.section-head p{max-width:420px;color:var(--muted);line-height:1.7}
+.gold{color:var(--gold)}
+.barber-pole{height:12px;border-radius:99px;background:repeating-linear-gradient(135deg,var(--red) 0 18px,var(--white) 18px 36px,var(--blue) 36px 54px);box-shadow:0 0 24px rgba(24,90,219,.18);margin-top:30px;animation:pole 7s linear infinite;background-size:108px 108px}
+.flag-accent{display:inline-flex;gap:0;height:5px;width:74px;vertical-align:middle;margin-left:8px;border-radius:5px;overflow:hidden}.flag-accent i{flex:1}.flag-accent i:nth-child(1){background:#fcd116}.flag-accent i:nth-child(2){background:#003893}.flag-accent i:nth-child(3){background:#ce1126}
+@keyframes pole{to{background-position:108px 0}}
+.review-link{display:inline-block;margin-top:18px;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:var(--panel);padding:38px 30px;min-height:250px;position:relative;overflow:hidden;transition:.45s}
+.service:hover{background:#15130f;transform:translateY(-6px)}
+.service:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-65px;bottom:-65px;background:rgba(201,166,107,.08);transition:.5s}
+.service:hover:after{transform:scale(2.3)}
+.service-no{font-family:Oswald;color:#70695f;font-size:12px;letter-spacing:.15em}
+.service h3{font-family:Oswald;text-transform:uppercase;font-size:31px;margin:42px 0 13px}
+.service p{color:var(--muted);font-size:14px;line-height:1.6;max-width:280px}
+
+.convert{background:var(--cream);color:#0b0b0b;padding:70px 0;position:relative;overflow:hidden}
+.convert:after{content:"TIGER";position:absolute;font-family:Oswald;font-size:220px;color:rgba(0,0,0,.035);right:-10px;bottom:-65px}
+.convert-grid{display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;z-index:1}
+.convert h2{font-family:Oswald;font-size:clamp(45px,6vw,76px);line-height:.9;text-transform:uppercase}
+.convert p{margin-top:15px;color:#635d56;max-width:520px;line-height:1.6}
+.dark-btn{background:#0b0b0b;color:white;padding:17px 25px;border-radius:4px;display:inline-block;text-transform:uppercase;font-weight:700;font-size:11px;letter-spacing:.12em;white-space:nowrap;transition:.3s}
+.dark-btn:hover{transform:scale(1.04);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+
+.experience{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.big-number{font-family:Oswald;font-size:180px;color:rgba(201,166,107,.12);line-height:.75}
+.experience h2{font-family:Oswald;font-size:clamp(52px,6vw,82px);text-transform:uppercase;line-height:.9;margin:15px 0 25px}
+.experience p{color:var(--muted);line-height:1.75;max-width:580px}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+.point{border-top:1px solid var(--line);padding-top:17px;color:#c5beb5;font-size:13px}
+.point b{display:block;color:var(--gold);font-family:Oswald;font-size:22px;margin-bottom:5px}
+
+.reviews{background:#0d0d0d}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.review{border:1px solid var(--line);padding:30px;min-height:260px;background:#111;transition:.4s}
+.review:hover{transform:translateY(-8px);border-color:rgba(201,166,107,.45)}
+.stars{color:var(--gold);letter-spacing:3px;margin-bottom:30px}
+.review p{font-family:Oswald;font-size:25px;line-height:1.12;text-transform:uppercase}
+.review small{display:block;margin-top:28px;color:#777;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+
+.location{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.location > div{background:var(--panel);padding:55px}
+.location h3{font-family:Oswald;font-size:44px;text-transform:uppercase;margin-bottom:18px}
+.location p{color:var(--muted);line-height:1.7}
+.info{margin-top:30px;display:grid;gap:12px}
+.info a,.info div{color:#d7d0c7;border-bottom:1px solid var(--line);padding-bottom:12px;font-size:14px}
+.map{min-height:420px;background:
+radial-gradient(circle at 55% 45%,rgba(201,166,107,.16),transparent 2%),
+linear-gradient(135deg,#171717,#0b0b0b);
+position:relative;display:grid;place-items:center;overflow:hidden}
+.map:before,.map:after{content:"";position:absolute;background:rgba(255,255,255,.05)}
+.map:before{width:160%;height:1px;transform:rotate(25deg)}
+.map:after{width:1px;height:160%;transform:rotate(25deg)}
+.map-pin{position:relative;z-index:2;text-align:center}
+.pin{width:62px;height:62px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:auto auto 18px;color:var(--gold);animation:ping 2s infinite}
+.map-pin b{font-family:Oswald;font-size:28px;text-transform:uppercase}
+
+.cta{padding:120px 0;text-align:center;position:relative;overflow:hidden}
+.cta:before{content:"";position:absolute;inset:20% 10%;background:radial-gradient(circle,rgba(201,166,107,.15),transparent 65%);filter:blur(25px)}
+.cta>*{position:relative}
+.cta h2{font-family:Oswald;font-size:clamp(65px,11vw,150px);line-height:.82;text-transform:uppercase}
+.cta p{color:var(--muted);margin:25px auto 35px;max-width:500px;line-height:1.6}
+
+footer{border-top:1px solid var(--line);padding:25px 0;color:#6f6a64;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.footer{display:flex;justify-content:space-between;gap:20px}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.75}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes ping{50%{box-shadow:0 0 0 13px rgba(201,166,107,.03)}}
+
+@media(max-width:850px){
+ nav{display:none}.menu{display:block}.nav-cta{display:none}
+ .hero-grid,.experience,.location{grid-template-columns:1fr}
+ .hero-card{height:430px}.services,.review-grid{grid-template-columns:1fr}
+ .section-head{display:block}.section-head p{margin-top:22px}
+ .convert-grid{display:block}.convert .dark-btn{margin-top:30px}
+ .points{grid-template-columns:1fr}
+ .location > div{padding:35px}
+}
+@media(max-width:520px){
+ .container{width:min(100% - 28px,var(--max))}
+ section{padding:80px 0}.hero{padding-top:120px}
+ h1{font-size:68px}.hero-card{height:370px}
+ .card-bottom{left:38px;right:38px;bottom:40px}.card-top{left:38px;top:45px}
+ .card-title{font-size:43px}.big-number{font-size:120px}
+}
+
+/* ---- Liquid crystal orb (hero) ---- */
+.liquid-orb{position:absolute;top:8%;right:4%;width:420px;height:420px;pointer-events:none;z-index:1;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45))}
+.orb-core{position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), transparent 42%),
+    radial-gradient(circle at 68% 72%, rgba(24,90,219,.35), transparent 55%),
+    radial-gradient(circle at 70% 25%, rgba(215,40,40,.28), transparent 55%),
+    linear-gradient(160deg, rgba(201,166,107,.35), rgba(20,20,20,.65) 60%);
+  backdrop-filter: blur(2px);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 0 60px rgba(255,255,255,.08), inset 0 -20px 50px rgba(0,0,0,.5);
+  animation: orbMorph 12s ease-in-out infinite, orbFloat 9s ease-in-out infinite;
+}
+.orb-ring{position:absolute;inset:-18px;border-radius:50%;border:1px solid rgba(201,166,107,.25);animation:orbSpin 30s linear infinite}
+.orb-highlight{position:absolute;top:14%;left:18%;width:26%;height:16%;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(10px);animation:orbFloat 9s ease-in-out infinite reverse}
+@keyframes orbMorph{
+  0%,100%{border-radius:52% 48% 45% 55%/55% 45% 55% 45%}
+  33%{border-radius:45% 55% 60% 40%/40% 60% 40% 60%}
+  66%{border-radius:60% 40% 48% 52%/52% 48% 60% 40%}
+}
+@keyframes orbFloat{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-18px) translateX(8px)}}
+@keyframes orbSpin{to{transform:rotate(360deg)}}
+@media(max-width:850px){.liquid-orb{width:260px;height:260px;top:2%;right:-40px;opacity:.85}}
+
+/* ---- Gallery ---- */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery-grid a{display:block;position:relative;border-radius:6px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease, filter .5s ease;filter:saturate(.92) contrast(1.02)}
+.gallery-grid a:hover img{transform:scale(1.08);filter:saturate(1.05) contrast(1.05)}
+.gallery-grid a:after{content:"＋";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--gold);background:rgba(0,0,0,0);opacity:0;transition:.3s}
+.gallery-grid a:hover:after{background:rgba(0,0,0,.35);opacity:1}
+.gallery-grid a:nth-child(4n+1){grid-row:span 2}
+@media(max-width:850px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid a:nth-child(4n+1){grid-row:span 1}}
+
+.lightbox{position:fixed;inset:0;z-index:120;background:rgba(6,6,6,.92);display:none;align-items:center;justify-content:center;padding:40px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(900px,92vw);max-height:82vh;border-radius:6px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox-close{position:absolute;top:22px;right:26px;background:none;border:0;color:var(--cream);font-size:34px;cursor:pointer;line-height:1}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--cream);width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;display:grid;place-items:center}
+.lightbox-nav.prev{left:22px}.lightbox-nav.next{right:22px}
+@media(max-width:600px){.lightbox-nav{width:38px;height:38px;font-size:18px}.lightbox-nav.prev{left:8px}.lightbox-nav.next{right:8px}}
+
+/* ---- FAQ chat bot ---- */
+.bot-fab{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--gold);color:#0b0b0b;border:0;cursor:pointer;display:grid;place-items:center;font-size:24px;box-shadow:0 14px 34px rgba(0,0,0,.4);transition:.3s}
+.bot-fab:hover{transform:scale(1.06)}
+.bot-fab .badge{position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:var(--red);border:2px solid var(--bg)}
+.bot-panel{position:fixed;right:22px;bottom:94px;z-index:60;width:340px;max-width:calc(100vw - 44px);height:460px;max-height:calc(100vh - 140px);background:var(--panel);border:1px solid var(--line);border-radius:10px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.bot-panel.open{display:flex}
+.bot-head{background:var(--panel2);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.bot-head div b{font-family:Oswald;text-transform:uppercase;letter-spacing:.08em;font-size:14px}
+.bot-head div span{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.bot-close{background:none;border:0;color:var(--cream);font-size:20px;cursor:pointer;line-height:1}
+.bot-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.bot-msg{max-width:84%;padding:10px 13px;border-radius:8px;font-size:13.5px;line-height:1.5}
+.bot-msg.bot{align-self:flex-start;background:var(--bg);border:1px solid var(--line);color:var(--cream)}
+.bot-msg.user{align-self:flex-end;background:var(--gold);color:#0b0b0b;font-weight:600}
+.bot-quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
+.bot-quick button{background:transparent;border:1px solid var(--line);color:var(--gold);font-size:11.5px;padding:7px 10px;border-radius:99px;cursor:pointer;transition:.25s}
+.bot-quick button:hover{border-color:var(--gold);background:rgba(201,166,107,.1)}
+.bot-inputrow{display:flex;border-top:1px solid var(--line);padding:10px}
+.bot-inputrow input{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;color:var(--cream);font:inherit;font-size:13px}
+.bot-inputrow input:focus{outline:1px solid var(--gold)}
+.bot-inputrow button{margin-left:8px;background:var(--gold);color:#0b0b0b;border:0;border-radius:6px;padding:0 16px;font-weight:700;cursor:pointer}
+@media(max-width:520px){.bot-panel{right:12px;bottom:86px;width:calc(100vw - 24px)}.bot-fab{right:14px;bottom:14px}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header id="header">
+  <div class="container nav">
+    <a class="logo" href="#">TIGER<span>®</span></a>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#experiencia">La barbería</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="https://booksy.com/es-es/170436_barberia-latina-tiger-barber_barberia_53009_madrid" target="_blank" rel="noopener">Reservar cita</a>
+    <button class="menu" aria-label="Menú" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="liquid-orb" aria-hidden="true">
+    <div class="orb-core"></div>
+    <div class="orb-ring"></div>
+    <div class="orb-highlight"></div>
+  </div>
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Barbería latina · Madrid · Salamanca <span class="flag-accent"><i></i><i></i><i></i></span></div>
+      <h1>Tu corte.<br><em>Tu sello.</em></h1>
+      <p class="hero-copy">Un corte bien hecho no necesita presentación. Tiger Barber combina precisión, estilo y una experiencia de barbería pensada para salir de aquí sintiéndote mejor que cuando entraste.</p>
+      <div class="actions">
+        <a class="primary" href="https://booksy.com/es-es/170436_barberia-latina-tiger-barber_barberia_53009_madrid" target="_blank" rel="noopener">Reservar cita</a>
+        <a class="secondary" href="#servicios">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-card float reveal">
+      <div class="card-top">MADRID · 28028</div>
+      <div class="card-bottom">
+        <div class="card-title">Tiger<br>Barber</div>
+        <div class="card-number">01 / MADRID</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="barber-pole"></div></div>
+<div class="marquee">
+  <div class="marquee-track">
+    <span>PRECISIÓN</span><span class="dot">✦</span><span>ESTILO</span><span class="dot">✦</span><span>BARBERÍA</span><span class="dot">✦</span><span>MADRID</span><span class="dot">✦</span>
+    <span>PRECISIÓN</span><span class="dot">✦</span><span>ESTILO</span><span class="dot">✦</span><span>BARBERÍA</span><span class="dot">✦</span><span>MADRID</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Elige tu<br><span class="gold">estilo.</span></h2>
+      <p>La web está diseñada para reducir fricción: el cliente entiende qué puede esperar y tiene un CTA de reserva visible desde el primer segundo.</p>
+    </div>
+    <div class="services">
+      <article class="service reveal"><div class="service-no">01 — CORTE</div><h3>Corte masculino</h3><p>Un corte limpio y adaptado a tu estilo. Consulta disponibilidad y detalles directamente con la barbería.</p></article>
+      <article class="service reveal"><div class="service-no">02 — DETALLE</div><h3>Fades & precisión</h3><p>Degradados y trabajo de detalle para un acabado definido. Ideal si buscas un cambio visible y cuidado.</p></article>
+      <article class="service reveal"><div class="service-no">03 — BARBA</div><h3>Barba</h3><p>Acabado de barba y perfilado para completar el look. Pregunta por el servicio disponible al reservar.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Nuestro<br><span class="gold">trabajo.</span></h2>
+      <p>Cortes reales de clientes reales, hechos en nuestro local de Francisco Silvela. Toca cualquier foto para verla en grande.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <a href="assets/gallery-1.jpg" data-lightbox><img src="assets/gallery-1.jpg" alt="Corte con fade y barba perfilada en Tiger Barber Madrid" loading="lazy"></a>
+      <a href="assets/gallery-2.jpg" data-lightbox><img src="assets/gallery-2.jpg" alt="Skin fade con raya lateral en Tiger Barber Madrid" loading="lazy"></a>
+      <a href="assets/gallery-3.jpg" data-lightbox><img src="assets/gallery-3.jpg" alt="Corte con degradado y textura arriba" loading="lazy"></a>
+      <a href="assets/gallery-4.jpg" data-lightbox><img src="assets/gallery-4.jpg" alt="Interior de la barbería Tiger Barber en Madrid" loading="lazy"></a>
+      <a href="assets/gallery-5.jpg" data-lightbox><img src="assets/gallery-5.jpg" alt="Corte con raya y fade, vista de perfil" loading="lazy"></a>
+      <a href="assets/gallery-6.jpg" data-lightbox><img src="assets/gallery-6.jpg" alt="Corte con pelo rizado y degradado" loading="lazy"></a>
+      <a href="assets/gallery-7.jpg" data-lightbox><img src="assets/gallery-7.jpg" alt="Corte con mechas y degradado" loading="lazy"></a>
+      <a href="assets/gallery-8.jpg" data-lightbox><img src="assets/gallery-8.jpg" alt="Corte buzz con fade en Tiger Barber" loading="lazy"></a>
+      <a href="assets/gallery-9.jpg" data-lightbox><img src="assets/gallery-9.jpg" alt="Corte con textura rizada y fade bajo" loading="lazy"></a>
+      <a href="assets/gallery-10.jpg" data-lightbox><img src="assets/gallery-10.jpg" alt="Corte infantil con degradado" loading="lazy"></a>
+      <a href="assets/gallery-11.jpg" data-lightbox><img src="assets/gallery-11.jpg" alt="Corte con raya lateral y degradado suave" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="convert">
+  <div class="container convert-grid">
+    <div>
+      <h2>¿Listo para<br>salir <span class="gold">fresh?</span></h2>
+      <p>Una llamada y listo. Tiger Barber está en Francisco Silvela, en el distrito de Salamanca.</p>
+    </div>
+    <a class="dark-btn" href="https://booksy.com/es-es/170436_barberia-latina-tiger-barber_barberia_53009_madrid" target="_blank" rel="noopener">Reservar cita →</a>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="container experience">
+    <div class="reveal">
+      <div class="big-number">01</div>
+      <div class="eyebrow">La experiencia Tiger</div>
+    </div>
+    <div class="reveal">
+      <h2>Más que<br>un corte.</h2>
+      <p>El objetivo es sencillo: que el cliente tenga claro dónde está, qué puede hacer y cómo reservar sin perder tiempo. La identidad visual mezcla una estética premium oscura con detalles dorados y microanimaciones para transmitir cuidado y confianza.</p>
+      <div class="points">
+        <div class="point"><b>01</b>Atención directa</div>
+        <div class="point"><b>02</b>Estilo personalizado</div>
+        <div class="point"><b>03</b>Ubicación en Salamanca</div>
+        <div class="point"><b>04</b>Reserva rápida por teléfono</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones" class="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Lo que<br><span class="gold">dicen.</span></h2>
+      <p>Tiger Barber aparece actualmente con una valoración de 5,0/5 y 97 reseñas en la ficha de Google Business consultada.</p>
+    </div>
+    <div class="review-grid">
+      <article class="review reveal"><div class="stars">★★★★★</div><p>Una valoración de 5 estrellas habla más que mil palabras.</p><small>Google · 5,0 / 5</small><a class="review-link" href="https://www.google.com/maps/search/?api=1&query=Tiger+Barber+Madrid" target="_blank">Ver reseñas →</a></article>
+      <article class="review reveal"><div class="stars">★★★★★</div><p>La prueba social está colocada justo antes del contacto.</p><small>97 reseñas en la ficha consultada</small><a class="review-link" href="https://www.google.com/maps/search/?api=1&query=Tiger+Barber+Madrid" target="_blank">Leer en Google →</a></article>
+      <article class="review reveal"><div class="stars">★★★★★</div><p>Ahora solo falta que el próximo cliente sea tú.</p><small>Salamanca · Madrid</small><a class="review-link" href="https://www.google.com/maps/search/?api=1&query=Tiger+Barber+Madrid" target="_blank">Más opiniones →</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Encuéntranos<br><span class="gold">en Madrid.</span></h2>
+      <p>Información de contacto y ubicación clara para convertir búsquedas locales en visitas.</p>
+    </div>
+    <div class="location">
+      <div class="reveal">
+        <h3>Tiger Barber</h3>
+        <p>Barbería latina en el distrito de Salamanca.</p>
+        <div class="info">
+          <div>📍 C/ de Francisco Silvela, 77 interior · 28028 Madrid</div>
+          <a href="tel:+34643986573">☎ +34 643 98 65 73</a>
+          <div>🕙 L–V · 10:00–15:00 / 16:00–21:00</div>
+          <div>🕚 Sábado · 11:00–18:00</div>
+        </div>
+        <div class="actions" style="margin-top:30px">
+          <a class="primary" href="https://booksy.com/es-es/170436_barberia-latina-tiger-barber_barberia_53009_madrid" target="_blank" rel="noopener">Reservar online</a>
+          <a class="secondary" href="https://www.google.com/maps/search/?api=1&query=Tiger+Barber+77+C%2F+de+Francisco+Silvela+Madrid" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=Tiger+Barber+77+C%2F+de+Francisco+Silvela+Madrid" target="_blank" rel="noopener" aria-label="Abrir ubicación en Google Maps">
+        <div class="map-pin"><div class="pin">✦</div><b>28028 · Madrid</b></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <div class="eyebrow">Tu próximo corte empieza aquí</div>
+    <h2>Hazlo<br><span class="gold">Tiger.</span></h2>
+    <p>No necesitas rellenar formularios ni perder tiempo. Elige tu cita online y ven a por tu próximo look.</p>
+    <a class="primary" href="https://booksy.com/es-es/170436_barberia-latina-tiger-barber_barberia_53009_madrid" target="_blank" rel="noopener">Reservar cita →</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <span>TIGER BARBER® · MADRID</span>
+    <span>Francisco Silvela · Salamanca · 28028</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Anterior">‹</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Siguiente">›</button>
+</div>
+
+<button class="bot-fab" id="botFab" aria-label="Abrir asistente de preguntas frecuentes">
+  💬<span class="badge"></span>
+</button>
+
+<div class="bot-panel" id="botPanel" role="dialog" aria-label="Asistente Tiger Barber">
+  <div class="bot-head">
+    <div><b>Tiger Assistant</b><span>Responde al momento</span></div>
+    <button class="bot-close" id="botClose" aria-label="Cerrar">×</button>
+  </div>
+  <div class="bot-body" id="botBody"></div>
+  <div class="bot-quick" id="botQuick"></div>
+  <div class="bot-inputrow">
+    <input type="text" id="botInput" placeholder="Escribe tu pregunta…" autocomplete="off">
+    <button id="botSend">Enviar</button>
+  </div>
+</div>
+
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30),{passive:true});
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      entry.target.style.transitionDelay=(i%4)*70+'ms';
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});mainNavEl && mainNavEl.classList.remove('open');}
+  });
+});
+
+/* ---- mobile menu toggle ---- */
+const menuBtn=document.getElementById('menuBtn');
+const mainNavEl=document.querySelector('nav');
+if(menuBtn && mainNavEl){
+  menuBtn.addEventListener('click',()=>{
+    const isOpen=mainNavEl.style.display==='flex';
+    mainNavEl.style.cssText=isOpen? '' : 'display:flex;flex-direction:column;gap:18px;position:fixed;top:78px;right:20px;background:#111;border:1px solid rgba(255,255,255,.1);padding:22px 26px;border-radius:6px;z-index:50;';
+  });
+}
+
+/* ---- Gallery lightbox ---- */
+(function(){
+  const links=[...document.querySelectorAll('[data-lightbox]')];
+  if(!links.length) return;
+  const box=document.getElementById('lightbox');
+  const img=document.getElementById('lightboxImg');
+  let idx=0;
+  function show(i){
+    idx=(i+links.length)%links.length;
+    img.src=links[idx].getAttribute('href');
+    img.alt=links[idx].querySelector('img').alt;
+  }
+  links.forEach((a,i)=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      show(i);
+      box.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click',()=>box.classList.remove('open'));
+  document.getElementById('lightboxPrev').addEventListener('click',()=>show(idx-1));
+  document.getElementById('lightboxNext').addEventListener('click',()=>show(idx+1));
+  box.addEventListener('click',e=>{ if(e.target===box) box.classList.remove('open'); });
+  document.addEventListener('keydown',e=>{
+    if(!box.classList.contains('open')) return;
+    if(e.key==='Escape') box.classList.remove('open');
+    if(e.key==='ArrowLeft') show(idx-1);
+    if(e.key==='ArrowRight') show(idx+1);
+  });
+})();
+
+/* ---- FAQ chat bot ---- */
+(function(){
+  const fab=document.getElementById('botFab');
+  const panel=document.getElementById('botPanel');
+  const closeBtn=document.getElementById('botClose');
+  const body=document.getElementById('botBody');
+  const quick=document.getElementById('botQuick');
+  const input=document.getElementById('botInput');
+  const send=document.getElementById('botSend');
+
+  // Base de preguntas frecuentes: añade o edita entradas aquí.
+  const faq=[
+    { keys:['horario','hora','abren','cierran','abierto'],
+      a:'Abrimos de lunes a viernes de 10:00 a 15:00 y de 16:00 a 21:00. Los sábados de 11:00 a 18:00. Domingo cerrado.' },
+    { keys:['precio','cuesta','coste','tarifa'],
+      a:'Los precios varían según el servicio (corte, fade o barba). Llámanos al +34 643 98 65 73 y te confirmamos el precio exacto al reservar.' },
+    { keys:['direccion','ubicacion','donde','dónde','calle','mapa','llegar'],
+      a:'Estamos en C/ de Francisco Silvela, 77 interior, 28028 Madrid (distrito de Salamanca).' },
+    { keys:['reserva','cita','reservar','apuntar','booksy'],
+      a:'Puedes reservar online en nuestra página de Booksy, eligiendo barbero, servicio y hora disponible. También puedes llamarnos al +34 643 98 65 73.' },
+    { keys:['aparcar','parking','aparcamiento','coche'],
+      a:'Hay aparcamiento en las inmediaciones de Francisco Silvela; te recomendamos consultar disponibilidad en la zona al llegar.' },
+    { keys:['servicio','corte','fade','barba','degradado'],
+      a:'Ofrecemos corte masculino, fades y perfilado/arreglo de barba. Puedes ver el detalle en la sección "Servicios" de la web.' },
+    { keys:['telefono','llamar','contacto'],
+      a:'Puedes llamarnos directamente al +34 643 98 65 73.' },
+    { keys:['opinion','reseña','valoracion','valoración'],
+      a:'Tiger Barber tiene 5,0/5 con 97 reseñas en Google en el momento de publicar esta web.' },
+    { keys:['hola','buenas','hey'],
+      a:'¡Hola! Soy el asistente de Tiger Barber. Puedo ayudarte con horarios, precios, ubicación o cómo reservar tu cita.' }
+  ];
+
+  const quickQuestions=['¿Cuál es el horario?','¿Dónde estáis?','¿Cómo reservo?','¿Qué servicios tenéis?'];
+
+  function addMsg(text,who){
+    const div=document.createElement('div');
+    div.className='bot-msg '+who;
+    div.textContent=text;
+    body.appendChild(div);
+    body.scrollTop=body.scrollHeight;
+  }
+
+  function answerFor(text){
+    const t=text.toLowerCase();
+    const hit=faq.find(item=>item.keys.some(k=>t.includes(k)));
+    if(hit) return hit.a;
+    return 'No tengo una respuesta exacta para eso. Para cualquier duda concreta, llámanos al +34 643 98 65 73 y te atendemos al momento.';
+  }
+
+  function handleUserText(text){
+    if(!text.trim()) return;
+    addMsg(text,'user');
+    input.value='';
+    setTimeout(()=>addMsg(answerFor(text),'bot'),350);
+  }
+
+  function renderQuick(){
+    quick.innerHTML='';
+    quickQuestions.forEach(q=>{
+      const b=document.createElement('button');
+      b.textContent=q;
+      b.addEventListener('click',()=>handleUserText(q));
+      quick.appendChild(b);
+    });
+  }
+
+  function openPanel(){
+    panel.classList.add('open');
+    if(!body.dataset.started){
+      addMsg('¡Hola! Soy el asistente de Tiger Barber 🐯 Pregúntame por horarios, precios, ubicación o cómo reservar.','bot');
+      renderQuick();
+      body.dataset.started='1';
+    }
+    input.focus();
+  }
+
+  fab.addEventListener('click',()=>{
+    panel.classList.contains('open') ? panel.classList.remove('open') : openPanel();
+  });
+  closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
+  send.addEventListener('click',()=>handleUserText(input.value));
+  input.addEventListener('keydown',e=>{ if(e.key==='Enter') handleUserText(input.value); });
+})();
+</script>
+</body>
+</html>
